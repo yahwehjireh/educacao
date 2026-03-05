@@ -1065,8 +1065,75 @@ footer {
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
-
+// ── Nav active link on scroll ──
 const sections = document.querySelectorAll("section[id]");
 const links = document.querySelectorAll(".nav-links a");
-window.addEventListener("scroll
+window.addEventListener("scroll", function(){
+  let cur = "";
+  sections.forEach(function(s){
+    if(window.scrollY >= s.offsetTop - 80) cur = s.id;
+  });
+  links.forEach(function(a){
+    a.classList.toggle("ativo", a.getAttribute("href") === "#" + cur);
+  });
+}, {passive: true});
+
+// ── Slideshow ──
+var currentSlide = 0;
+var totalSlides = 6;
+var autoplayTimer = null;
+
+function updateSlide() {
+  var track = document.getElementById('slidesTrack');
+  if (!track) return;
+  track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+  document.querySelectorAll('.dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === currentSlide);
+  });
+}
+
+function moveSlide(dir) {
+  currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+  updateSlide();
+  resetAutoplay();
+}
+
+function goToSlide(n) {
+  currentSlide = n;
+  updateSlide();
+  resetAutoplay();
+}
+
+function startAutoplay() {
+  autoplayTimer = setInterval(function() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlide();
+  }, 4000);
+}
+
+function resetAutoplay() {
+  clearInterval(autoplayTimer);
+  startAutoplay();
+}
+
+// Init
+updateSlide();
+startAutoplay();
+
+// Pausa hover/touch
+(function() {
+  var el = document.querySelector('.slideshow');
+  if (!el) return;
+  el.addEventListener('mouseenter', function(){ clearInterval(autoplayTimer); });
+  el.addEventListener('mouseleave', function(){ startAutoplay(); });
+  var startX = 0;
+  el.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; clearInterval(autoplayTimer); }, {passive:true});
+  el.addEventListener('touchend', function(e){
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) moveSlide(diff > 0 ? 1 : -1);
+    else startAutoplay();
+  }, {passive:true});
+})();
+</script>
+</body>
+</html>
