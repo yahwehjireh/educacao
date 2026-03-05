@@ -872,6 +872,17 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+.contato-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contato-item a,
+.contato-item p {
+  margin: 0;
+}
 </style>
 </head>
 <body>
@@ -1079,20 +1090,36 @@ footer {
     <div class="contato-grid">
       <div class="contato-card">
         <span class="contato-r">Endereço</span>
-        <p>Rua Fortaleza, Nº 01, Quadra 07<br>Residência Mª Aragão I<br>CEP 65.057-887<br>São Luís – MA</p>
+        <div class="contato-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#4a6abf"/><circle cx="12" cy="9" r="2.5" fill="white"/></svg>
+          <p>Rua Fortaleza, Nº 01, Quadra 07<br>Residência Mª Aragão I<br>CEP 65.057-887<br>São Luís – MA</p>
+        </div>
       </div>
       <div class="contato-card">
-        <span class="contato-r">Telefone</span>
-        <a href="tel:+5598981922642">(98) 98192-2642</a>
+        <span class="contato-r">WhatsApp</span>
+        <div class="contato-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.534 5.875L0 24l6.29-1.51A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.36-.214-3.733.897.944-3.619-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+          <a href="https://wa.me/5598981922642" target="_blank" rel="noopener">(98) 98192-2642</a>
+        </div>
+        <div class="contato-item" style="margin-top:12px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.564 4.14 1.534 5.875L0 24l6.29-1.51A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.36-.214-3.733.897.944-3.619-.234-.373A9.818 9.818 0 1112 21.818z"/></svg>
+          <a href="https://wa.me/5598981589912" target="_blank" rel="noopener">(98) 98158-9912</a>
+        </div>
       </div>
       <div class="contato-card">
         <span class="contato-r">E-mail</span>
-        <a href="/cdn-cgi/l/email-protection#fa9394898e938e8f8e959f9e8f839b928d9f929093889f92c8ccba9d979b9396d4999597"><span class="__cf_email__" data-cfemail="0a6364797e637e7f7e656f6e7f736b627d6f626063786f62383c4a6d676b636624696567">[email&#160;protected]</span></a>
-        <p class="contato-cnpj">CNPJ: 19.076.369/0001-06</p>
+        <div class="contato-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><rect width="24" height="24" rx="4" fill="#4a6abf"/><path d="M4 8l8 5 8-5" stroke="white" stroke-width="1.8" stroke-linecap="round"/><rect x="3" y="7" width="18" height="12" rx="2" stroke="white" stroke-width="1.8" fill="none"/></svg>
+          <a href="mailto:institutoeduyahwehjireh26@gmail.com">institutoeduyahwehjireh26@gmail.com</a>
+        </div>
+        <p class="contato-cnpj" style="margin-top:12px">CNPJ: 19.076.369/0001-06</p>
       </div>
       <div class="contato-card">
         <span class="contato-r">Instagram</span>
-        <a href="https://instagram.com/yahwehjireh_edu" target="_blank" rel="noopener">@yahwehjireh_edu</a>
+        <div class="contato-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><rect width="24" height="24" rx="6" fill="url(#ig)"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.8" fill="none"/><defs><linearGradient id="ig" x1="0" y1="24" x2="24" y2="0"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs></svg>
+          <a href="https://instagram.com/yahwehjireh_edu" target="_blank" rel="noopener">@yahwehjireh_edu</a>
+        </div>
       </div>
     </div>
   </div>
