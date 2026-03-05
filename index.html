@@ -832,6 +832,46 @@ footer {
   .slide-btn.prev { left: 8px; }
   .slide-btn.next { right: 8px; }
 }
+
+/* ═══════════════════════
+   HERO BG SLIDER
+═══════════════════════ */
+.hero {
+  position: relative;
+}
+
+.hero-bg-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  filter: blur(3px) brightness(0.4);
+  transform: scale(1.04);
+}
+
+.hero-bg-slide.active {
+  opacity: 1;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(26, 42, 94, 0.72);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
 </style>
 </head>
 <body>
@@ -857,6 +897,15 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="inicio">
+  <div class="hero-bg-slider" id="heroBgSlider">
+    <div class="hero-bg-slide" style="background-image:url('1.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('2.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('3.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('4.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('5.jpg')"></div>
+    <div class="hero-bg-slide" style="background-image:url('6.jpg')"></div>
+  </div>
+  <div class="hero-bg-overlay"></div>
   <div class="hero-inner">
 
     <div class="hero-title-wrap">
@@ -1078,6 +1127,19 @@ window.addEventListener("scroll", function(){
   });
 }, {passive: true});
 
+
+// ── Hero background slider ──
+var heroBgSlides = document.querySelectorAll('.hero-bg-slide');
+if (heroBgSlides.length > 0) {
+  heroBgSlides[0].classList.add('active');
+}
+
+function updateHeroBg(index) {
+  heroBgSlides.forEach(function(s, i) {
+    s.classList.toggle('active', i === index);
+  });
+}
+
 // ── Slideshow ──
 var currentSlide = 0;
 var totalSlides = 6;
@@ -1090,6 +1152,7 @@ function updateSlide() {
   document.querySelectorAll('.dot').forEach(function(d, i) {
     d.classList.toggle('active', i === currentSlide);
   });
+  updateHeroBg(currentSlide);
 }
 
 function moveSlide(dir) {
@@ -1108,6 +1171,7 @@ function startAutoplay() {
   autoplayTimer = setInterval(function() {
     currentSlide = (currentSlide + 1) % totalSlides;
     updateSlide();
+    updateHeroBg(currentSlide);
   }, 4000);
 }
 
